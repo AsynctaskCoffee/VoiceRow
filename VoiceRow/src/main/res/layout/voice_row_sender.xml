@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:cardBackgroundColor="@color/reddish_pink"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="0dp">
 
         <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="12dp"
+            android:paddingStart="7dp"
             android:paddingEnd="12dp">
 
 
@@ -59,6 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="-12dp"
+                    android:minWidth="130dp"
                     android:progress="0"
                     android:progressTint="#c9d1de"
                     android:thumbTint="@android:color/transparent" />
