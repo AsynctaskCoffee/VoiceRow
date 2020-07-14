@@ -12,7 +12,7 @@
         android:id="@+id/cardAudioPlay"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:cardBackgroundColor="#f1f2f4"
+        app:cardBackgroundColor="@color/reddish_pink"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp">
 
@@ -38,7 +38,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="12sp"
-                android:src="@drawable/sender_audio_play_icon" />
+                android:src="@drawable/me_audio_play_icon" />
 
 
             <LinearLayout
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="-12dp"
                     android:progress="0"
-                    android:progressTint="@color/reddish_pink"
+                    android:progressTint="#c9d1de"
                     android:thumbTint="@android:color/transparent" />
 
 

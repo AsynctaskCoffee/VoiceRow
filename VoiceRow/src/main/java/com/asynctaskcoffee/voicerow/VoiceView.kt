@@ -2,13 +2,16 @@ package com.asynctaskcoffee.voicerow
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.os.Handler
 import android.os.Message
 import android.text.TextUtils
+import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -18,7 +21,29 @@ import java.lang.Thread.sleep
 import java.text.SimpleDateFormat
 import java.util.*
 
-class VoiceView : MediaPlayListener {
+@SuppressLint("InflateParams")
+class VoiceView : FrameLayout, MediaPlayListener {
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        addView(LayoutInflater.from(context).inflate(R.layout.voice_row_their, null))
+    }
+
+    constructor(context: Context, attrs: AttributeSet?) : super(
+        context,
+        attrs
+    ) {
+        addView(LayoutInflater.from(context).inflate(R.layout.voice_row_their, null))
+    }
+
+    constructor(context: Context) : super(
+        context
+    ) {
+        addView(LayoutInflater.from(context).inflate(R.layout.voice_row_their, null))
+    }
 
     lateinit var player: Player
     private lateinit var activity: Activity
@@ -52,10 +77,15 @@ class VoiceView : MediaPlayListener {
 
     @SuppressLint("InflateParams")
     private fun setupView() {
+
+        removeAllViews()
+
         val v =
             if (isSender) LayoutInflater.from(activity)
                 .inflate(R.layout.voice_row_their, null) else LayoutInflater.from(activity)
                 .inflate(R.layout.voice_row_sender, null)
+
+        addView(v)
 
         cardAudioPlay = v.findViewById(R.id.cardAudioPlay)
         imgAudioPlay = v.findViewById(R.id.imgAudioPlay)

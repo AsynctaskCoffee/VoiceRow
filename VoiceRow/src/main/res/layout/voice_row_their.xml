@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="4dp">
+    android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAudioPlay"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
+        android:layout_margin="4dp"
         app:cardBackgroundColor="#f1f2f4"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp">
+        app:cardElevation="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,9 +48,11 @@
                     android:id="@+id/seekBarAudio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minWidth="100dp"
                     android:paddingStart="-12dp"
                     android:progress="0"
                     android:progressTint="@color/reddish_pink"
+                    android:thumb="@null"
                     android:thumbTint="@android:color/transparent" />
 
 
@@ -58,7 +60,6 @@
                     android:id="@+id/durationAudio"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="-5dp"
                     android:layout_weight="1"
                     android:gravity="top"
                     android:letterSpacing="0.04"
@@ -71,8 +72,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="12sp"
                 android:src="@color/cool_grey"
                 android:visibility="visible" />
