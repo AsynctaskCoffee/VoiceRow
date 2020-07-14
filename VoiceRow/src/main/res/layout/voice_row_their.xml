@@ -54,7 +54,7 @@
                     android:thumbTint="@android:color/transparent" />
 
 
-                <Chronometer
+                <TextView
                     android:id="@+id/durationAudio"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

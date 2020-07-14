@@ -3,7 +3,7 @@ package com.asynctaskcoffee.voicerow
 import android.media.MediaPlayer
 
 class Player(mediaPlayListener: MediaPlayListener?) {
-    private var player: MediaPlayer? = null
+    var player: MediaPlayer? = null
     private val mediaPlayListener: MediaPlayListener?
 
     fun reset() {
