@@ -1,2 +1,3 @@
+include ':VoiceRow'
 include ':app'
 rootProject.name = "VoiceRow"
