@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.asynctaskcoffee.audiorecorder.worker.AudioRecordListener
-import com.asynctaskcoffee.voicerow.VoiceObject
+import com.asynctaskcoffee.vorow.VoiceObject
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AudioRecordListener {

@@ -1,13 +1,12 @@
 package com.asynctaskcoffee.voicerowdemo
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.asynctaskcoffee.voicerow.VoiceObject
-import com.asynctaskcoffee.voicerow.VoiceView
+import com.asynctaskcoffee.vorow.VoiceObject
+import com.asynctaskcoffee.vorow.VoiceView
 import kotlin.random.Random
 
 class SimpleAdapter(private var list: List<VoiceObject>, private var activity: Activity) :

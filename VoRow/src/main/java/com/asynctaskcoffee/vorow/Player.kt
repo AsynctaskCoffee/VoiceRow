@@ -1,4 +1,4 @@
-package com.asynctaskcoffee.voicerow
+package com.asynctaskcoffee.vorow
 
 import android.media.MediaPlayer
 

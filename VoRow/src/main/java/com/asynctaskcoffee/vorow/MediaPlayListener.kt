@@ -1,4 +1,4 @@
-package com.asynctaskcoffee.voicerow
+package com.asynctaskcoffee.vorow
 
 interface MediaPlayListener {
     fun onStartMedia()

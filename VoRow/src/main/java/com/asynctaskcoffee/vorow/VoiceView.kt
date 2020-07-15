@@ -1,4 +1,4 @@
-package com.asynctaskcoffee.voicerow
+package com.asynctaskcoffee.vorow
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -7,12 +7,8 @@ import android.os.Handler
 import android.os.Message
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide

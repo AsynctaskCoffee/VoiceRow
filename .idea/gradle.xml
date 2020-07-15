@@ -11,7 +11,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/VoiceRow" />
+            <option value="$PROJECT_DIR$/VoRow" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
