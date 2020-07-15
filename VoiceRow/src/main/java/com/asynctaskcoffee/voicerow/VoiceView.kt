@@ -103,58 +103,59 @@ class VoiceView : FrameLayout, MediaPlayListener {
         } else userImage.visibility = GONE
 
         try {
-            getMMSSFromMillis(player.player!!.duration.toLong())
+            durationAudio.text = getMMSSFromMillis(player.player!!.duration.toLong())
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     override fun onStartMedia() {
+        imgAudioPlay.setOnClickListener(stopMediaListener)
     }
 
     override fun onStopMedia() {
+        imgAudioPlay.setOnClickListener(playMediaListener)
     }
 
     var playMediaListener: View.OnClickListener = View.OnClickListener {
-        if (!player.player!!.isPlaying) {
-            player.stopPlaying()
-            player.injectMedia(voiceObject.uri)
-            player.startPlaying()
-            audioIsPlaying = true
-            imgAudioPlay.setImageDrawable(
-                activity.resources.getDrawable(
-                    if (!isSender) R.drawable.sender_audio_pause_icon
-                    else R.drawable.me_audio_pause_icon
-                )
+        player.stopPlaying()
+        player.injectMedia(voiceObject.uri)
+        player.startPlaying()
+        audioIsPlaying = true
+        imgAudioPlay.setImageDrawable(
+            activity.resources.getDrawable(
+                if (isSender) R.drawable.sender_audio_pause_icon
+                else R.drawable.me_audio_pause_icon
             )
+        )
 
-            if (updateAudioPlayerProgressThread == null) {
-                updateAudioPlayerProgressThread = Thread {
-                    try {
-                        while (audioIsPlaying) {
-                            if (audioProgressHandler != null) {
-                                var msg = Message()
-                                msg.what = UPDATE_AUDIO_PROGRESS_BAR
-                                audioProgressHandler!!.sendMessage(msg)
-                                sleep(1000)
-                            }
+        if (updateAudioPlayerProgressThread == null) {
+            updateAudioPlayerProgressThread = Thread {
+                try {
+                    while (audioIsPlaying) {
+                        if (audioProgressHandler != null) {
+                            var msg = Message()
+                            msg.what = UPDATE_AUDIO_PROGRESS_BAR
+                            audioProgressHandler!!.sendMessage(msg)
+                            sleep(1000)
                         }
-                    } catch (ex: Exception) {
-
                     }
+                } catch (ex: Exception) {
+
                 }
-                updateAudioPlayerProgressThread!!.start();
             }
+            updateAudioPlayerProgressThread!!.start();
         }
     }
 
     var stopMediaListener: View.OnClickListener = View.OnClickListener {
         player.player!!.pause()
         audioIsPlaying = false
+        imgAudioPlay.setOnClickListener(playMediaListener)
         updateAudioPlayerProgressThread = null
         imgAudioPlay.setImageDrawable(
             activity.resources
-                .getDrawable(if (!isSender) R.drawable.sender_audio_play_icon else R.drawable.me_audio_play_icon)
+                .getDrawable(if (isSender) R.drawable.sender_audio_play_icon else R.drawable.me_audio_play_icon)
         )
     }
 
