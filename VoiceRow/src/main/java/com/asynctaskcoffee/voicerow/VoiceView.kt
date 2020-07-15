@@ -7,14 +7,13 @@ import android.os.Handler
 import android.os.Message
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.SeekBar
-import android.widget.TextView
+import android.view.ViewGroup
+import android.widget.*
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import java.lang.Thread.sleep

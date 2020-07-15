@@ -26,7 +26,8 @@ class SimpleAdapter(private var list: List<VoiceObject>, private var activity: A
             v = convertView
             holder = convertView.tag as ViewHolder
         }
-        voiceObject.bind(holder.voiceView, activity, true)
+        val isSender = Random.nextBoolean()
+        voiceObject.bind(holder.voiceView, activity, isSender)
         return v
     }
 
