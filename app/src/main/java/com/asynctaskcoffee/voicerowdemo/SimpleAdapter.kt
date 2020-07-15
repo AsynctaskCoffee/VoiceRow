@@ -10,12 +10,13 @@ import com.asynctaskcoffee.voicerow.VoiceObject
 import com.asynctaskcoffee.voicerow.VoiceView
 import kotlin.random.Random
 
-class SimpleAdapter(private var list: List<VoiceObject>, private var activity: Activity) : BaseAdapter() {
+class SimpleAdapter(private var list: List<VoiceObject>, private var activity: Activity) :
+    BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val v: View
         val holder: ViewHolder
-
+        var voiceObject = list[position]
         if (convertView == null) {
             v = LayoutInflater.from(activity).inflate(R.layout.simple_row_layout, parent, false)
             holder = ViewHolder()
@@ -25,8 +26,7 @@ class SimpleAdapter(private var list: List<VoiceObject>, private var activity: A
             v = convertView
             holder = convertView.tag as ViewHolder
         }
-
-        holder.voiceView.init(activity, list[position], true)
+        voiceObject.bind(holder.voiceView, activity, true)
         return v
     }
 
