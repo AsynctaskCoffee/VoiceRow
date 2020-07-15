@@ -10,13 +10,23 @@ import com.asynctaskcoffee.voicerow.VoiceObject
 import com.asynctaskcoffee.voicerow.VoiceView
 import kotlin.random.Random
 
-class SimpleAdapter(var list: List<VoiceObject>, var activity: Activity) : BaseAdapter() {
+class SimpleAdapter(private var list: List<VoiceObject>, private var activity: Activity) : BaseAdapter() {
 
-    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val v = LayoutInflater.from(activity).inflate(R.layout.simple_row_layout, null)
-        val voiceView = v.findViewById<VoiceView>(R.id.voiceView)
-        voiceView.init(activity, list[position], true)
+        val v: View
+        val holder: ViewHolder
+
+        if (convertView == null) {
+            v = LayoutInflater.from(activity).inflate(R.layout.simple_row_layout, parent, false)
+            holder = ViewHolder()
+            holder.voiceView = v.findViewById(R.id.voiceView)
+            v.tag = holder
+        } else {
+            v = convertView
+            holder = convertView.tag as ViewHolder
+        }
+
+        holder.voiceView.init(activity, list[position], true)
         return v
     }
 
@@ -30,6 +40,10 @@ class SimpleAdapter(var list: List<VoiceObject>, var activity: Activity) : BaseA
 
     override fun getCount(): Int {
         return list.size
+    }
+
+    private class ViewHolder {
+        lateinit var voiceView: VoiceView
     }
 
 }
